@@ -25,6 +25,7 @@ const signup = () => {
         <p className='text-xs text-slate-700 mt-[5px] mb-6'>Ready to begin? Create your account and let’s go!</p>
 
       <form onSubmit={handleSignUp}>
+        <profilePhotoSelector image={profilePic} setImage={setProfilePic}/>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           <Input
           value={fullName}
