@@ -19,7 +19,45 @@ const signup = () => {
     let profileImageUrl ="";
 
     //Validation
-    
+  if (!fullName) {
+      setError("Please enter your full name.");
+      return;
+  }
+  if (!email) {
+    setError("Please enter your email address.");
+    return;
+  }
+
+  if (!validateEmail(email)) {
+    setError("Please enter a valid email address.");
+    return;
+  }
+
+  if (!password) {
+    setError("Please enter a password.");
+    return;
+  }
+
+  if (!validatePassword(password)) {
+    setError("Password must be at least 8 characters long.");
+    return;
+  }
+
+  if (!profilePic) {
+    setError("Please upload a profile photo.");
+    return;
+  }
+
+  setError(null);
+
+  try {
+    navigate("/dashboard");
+  } catch (err) {
+    setError("Something went wrong, please try again.");
+  }
+
+  //SignUp Api call
+  
   }
   
 
