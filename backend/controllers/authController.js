@@ -1,3 +1,4 @@
+const { RiQqFill } = require("react-icons/ri");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
@@ -63,4 +64,13 @@ exports.loginUser = async (req, res) => {
 };
 //get user info
 exports.getUserInfo = async (req, res) => {
+
+    try{
+        const user = await User.findById(req.user.id).select("-password");
+        if(!user){
+            return res.status(400).json({message:"User not fount"});
+        }
+    }catch{
+
+    }
 };
